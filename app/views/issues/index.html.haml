@@ -3,11 +3,13 @@
 .h1
   Listing issues
 
-= form_for :filter, url: issues_path, method: :get do |f|
-  .field
-    = f.text_field :predicate
-  .actions
-    = f.submit 'Search', class: 'btn btn-info'
+= form_for :filter, url: issues_path, method: :get, class: 'form-inline' do |f|
+  .input-group
+    = f.text_field :predicate, class: 'form-control'
+    %span.input-group-btn
+      = f.button 'Search', class: 'btn btn-info'
+
+%br
 
 .row
   .col-xs-4.col-sm-4.col-md-4.text-center
