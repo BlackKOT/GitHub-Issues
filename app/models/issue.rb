@@ -8,7 +8,7 @@ class Issue < ApplicationRecord
     ActiveRecord::Base.transaction do
       while((page_num += 1) <= last_page) do
         issues_content = RestClient.get(
-          "https://api.github.com/repos/#{options[:user_name]}/#{options[:project_name]}/issues?per_page=30&page=#{page_num}"
+          "https://api.github.com/repos/#{options[:user_name]}/#{options[:project_name]}/issues?per_page=100&page=#{page_num}"
         )
 
         links = issues_content.headers[:link].to_s.split(',')
