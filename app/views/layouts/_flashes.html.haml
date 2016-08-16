@@ -1,0 +1,5 @@
+- if flash.present?
+  %nav.top-bar
+    - flash.each do |name, msg|
+      .notify{class: name}
+        = msg
