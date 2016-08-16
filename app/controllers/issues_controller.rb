@@ -13,7 +13,8 @@ class IssuesController < ApplicationController
     err = Issue::parse(params[:issue])
 
     if err
-      render :new, alert: err
+      flash.now[:alert] = "Error: #{err}"
+      render :new
     else
       redirect_to issues_path, notice: 'Issues successfully parsed'
     end
