@@ -1,5 +1,5 @@
 class Issue < ApplicationRecord
-  scope :filtered, ->(filter) { where('title LIKE ? OR body LIKE ?', "%#{filter[:predicate]}%", "%#{filter[:predicate]}%") }
+  scope :filtered, ->(filter) { where('title LIKE ? OR body LIKE ?', "%#{filter}%", "%#{filter}%") }
 
   def self.parse(options = {user_name: 'plataformatec', project_name: 'devise'})
     page_num = 0

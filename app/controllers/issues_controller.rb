@@ -3,7 +3,8 @@ class IssuesController < ApplicationController
 
   def index
     @issues = Issue
-    @issues = @issues.filtered(params[:filter]) if params[:filter]
+    @predicate = params[:filter][:predicate] if params[:filter]
+    @issues = @issues.filtered(@predicate)
   end
 
   def show
