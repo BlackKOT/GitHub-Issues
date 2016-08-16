@@ -4,7 +4,8 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.all
+    @issues = Issue
+    @issues.filtered(params[:filter]) if params[:filter]
   end
 
   # GET /issues/1
