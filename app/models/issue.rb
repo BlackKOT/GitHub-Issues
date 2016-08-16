@@ -16,7 +16,7 @@ class Issue < ApplicationRecord
         end
 
         links = issues_content.headers[:link].to_s.split(',')
-        last_page = links.last.split('page=').last.to_i if links && last_page == 1
+        last_page = links.last.split('page=').last.to_i if links.present? && last_page == 1
 
         JSON::parse(issues_content).each do |issue|
           Issue.create(
