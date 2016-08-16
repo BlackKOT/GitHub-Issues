@@ -1,6 +1,7 @@
 = link_to 'Parse issues', new_issue_path
 
-%h1 Listing issues
+.h1
+  Listing issues
 
 = form_for :filter, url: issues_path, method: :get do |f|
   .field
@@ -8,5 +9,4 @@
   .actions
     = f.submit 'Search'
 
-%table
-  = render partial: 'issue', collection:  @issues
+= render partial: 'issue', collection:  @issues
