@@ -1,4 +1,5 @@
-%h1 Parse issues
+.h1
+  Parse issues
 
 = form_for :issue, url: issues_path do |f|
   .field
@@ -8,6 +9,6 @@
     = f.label :project_name
     = f.text_field :project_name
   .actions
-    = f.submit 'Parse'
+    = f.submit 'Parse', class: 'btn btn-success'
 
-= link_to 'Back', issues_path
+= link_to 'Back', issues_path, class: 'btn btn-info'

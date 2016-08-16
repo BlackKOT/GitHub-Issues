@@ -1,4 +1,4 @@
-= link_to 'Parse issues', new_issue_path
+= link_to 'Parse issues', new_issue_path, class: 'btn btn-success'
 
 .h1
   Listing issues
@@ -7,6 +7,13 @@
   .field
     = f.text_field :predicate
   .actions
-    = f.submit 'Search'
+    = f.submit 'Search', class: 'btn btn-info'
 
+.row
+  .col-xs-4.col-sm-4.col-md-4.text-center
+    %strong Title
+  .col-xs-6.col-sm-6.col-md-6.text-center
+    %strong Body
+  .col-xs-2.col-sm-2.col-md-2
+%br
 = render partial: 'issue', collection:  @issues.all
