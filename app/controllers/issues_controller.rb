@@ -3,19 +3,19 @@ class IssuesController < ApplicationController
 
   def index
     @issues = Issue
-    @issues.filtered(params[:filter]) if params[:filter]
+    @issues = @issues.filtered(params[:filter]) if params[:filter]
   end
 
   def show
   end
 
   def create
-    err = Issue::parse(params[:user_name], params[:project_name])
+    err = Issue::parse(params[:issue])
 
     if err
       render :new, alert: err
     else
-      redirect_to :index, notice: 'Issues successfully parsed'
+      redirect_to issues_path, notice: 'Issues successfully parsed'
     end
   end
 

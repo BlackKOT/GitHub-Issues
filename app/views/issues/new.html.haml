@@ -1,12 +1,12 @@
 %h1 Parse issues
 
-= form_for @issue do |f|
+= form_for :issue, url: issues_path do |f|
   .field
     = f.label :user_name
     = f.text_field :user_name
   .field
     = f.label :project_name
-    = f.text_area :project_name
+    = f.text_field :project_name
   .actions
     = f.submit 'Parse'
 
