@@ -19,13 +19,14 @@ class Issue < ApplicationRecord
         last_page = links.last.split('page=').last.to_i if links.present? && last_page == 1
 
         JSON::parse(issues_content).each do |issue|
-          Issue.create(
-            title: issue['title'],
-            body: issue['body'],
+          Issue.where(
             issue_number: issue['number'],
             project_name: options[:project_name],
             user_name: options[:user_name]
-          )
+          ).first_or_create do |db_issue|
+            db_issue.title = issue['title']
+            db_issue.body =  issue['body']
+          end
         end
       end
     end
